@@ -6,7 +6,7 @@ describe('Note app', () => {
     await request.post('/api/testing/reset')
     await request.post('/api/users', {
       data: {
-        name: 'Matti Luukkainen',
+        name: 'superadmin',
         username: 'mluukkai',
         password: 'salainen'
       }
@@ -24,7 +24,7 @@ describe('Note app', () => {
   test('user can login with correct credentials', async ({ page }) => {
     await loginWith(page, 'mluukkai', 'salainen')
   
-    await expect(page.getByText('Matti Luukkainen logged in')).toBeVisible()
+    await expect(page.getByText('superadmin logged in')).toBeVisible()
   })
 
   test('login fails with wrong password', async ({ page }) => {
@@ -34,7 +34,7 @@ describe('Note app', () => {
     await expect(errorDiv).toContainText('wrong credentials')
     await expect(errorDiv).toHaveCSS('border-style', 'solid')
     await expect(errorDiv).toHaveCSS('color', 'rgb(255, 0, 0)')
-    await expect(page.getByText('Matti Luukkainen logged in')).not.toBeVisible()
+    await expect(page.getByText('superadmin logged in')).not.toBeVisible()
   })  
 
   describe('when logged in', () => {
