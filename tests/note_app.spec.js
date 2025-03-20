@@ -49,21 +49,21 @@ describe('Note app', () => {
       await expect(page.getByText('a note created by playwright, 07-03-2025')).toBeVisible()
     })
 
-    // describe('and a note exists', () => {
-    //   beforeEach(async ({ page }) => {
-    //     await createNote(page, 'first note', true)
-    //     await createNote(page, 'second note', true)
-    //     await createNote(page, 'third note', true)
-    //   })
+    describe('and a note exists', () => {
+      beforeEach(async ({ page }) => {
+        await createNote(page, 'first note', '07-03-2025', true)
+        await createNote(page, 'second note', '07-03-2025', true)
+        await createNote(page, 'third note', '07-03-2025', true)
+      })
   
-    //   test('importance can be changed', async ({ page }) => {
-    //     await page.pause()
-    //     const otherNoteText = await page.getByText('second note')
-    //     const otherNoteElement = await otherNoteText.locator('..')
+      test('importance can be changed', async ({ page }) => {
+        await page.pause()
+        const otherNoteText = await page.getByText('second note')
+        const otherNoteElement = await otherNoteText.locator('..')
       
-    //     await otherNoteElement.getByRole('button', { name: 'make not important' }).click()
-    //     await expect(otherNoteElement.getByText('make important')).toBeVisible()
-    //   })
-    // })
+        await otherNoteElement.getByRole('button', { name: 'make not important' }).click()
+        await expect(otherNoteElement.getByText('make important')).toBeVisible()
+      })
+    })
   })  
 })
