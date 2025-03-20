@@ -15,7 +15,7 @@ const createNote = async (page, content, date) => {
   await page.getByRole('textbox').first().fill(content)
 
   // Extract year, month, day from date
-  const [year, month, day] = date.split('-');
+  const [day, month, year] = date.split('-');
   
   await page.click('div.react-datepicker__input-container') // Open the calendar
 

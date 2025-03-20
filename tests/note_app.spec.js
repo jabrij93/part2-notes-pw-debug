@@ -45,8 +45,8 @@ describe('Note app', () => {
     })
 
     test('a new note can be created', async ({ page }) => {
-      await createNote(page, 'a note created by playwright', '2025-03-18', true)
-      await expect(page.getByText('a note created by playwright, 18-03-2025')).toBeVisible()
+      await createNote(page, 'a note created by playwright', '07-03-2025', true)
+      await expect(page.getByText('a note created by playwright, 07-03-2025')).toBeVisible()
     })
 
     // describe('and a note exists', () => {
