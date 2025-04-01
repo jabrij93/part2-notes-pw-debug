@@ -38,22 +38,21 @@ describe('Note app', () => {
   })  
 
   
-
   describe('when logged in', () => {
     beforeEach(async ({ page }) => {
       await loginWith(page, 'mluukkai', 'salainen')
     })
 
     test('a new note can be created', async ({ page }) => {
-      await createNote(page, 'a note created by playwright', '07-03-2025', true)
-      await expect(page.getByText('a note created by playwright, 07-03-2025')).toBeVisible()
+      await createNote(page, 'a note created by playwright', '01-04-2025', true)
+      await expect(page.getByText('a note created by playwright, 01-04-2025')).toBeVisible()
     })
 
     describe('and a note exists', () => {
       beforeEach(async ({ page }) => {
-        await createNote(page, 'first note', '07-03-2025', true)
-        await createNote(page, 'second note', '07-03-2025', true)
-        await createNote(page, 'third note', '07-03-2025', true)
+        await createNote(page, 'first note', '01-04-2025', true)
+        await createNote(page, 'second note', '02-04-2025', true)
+        await createNote(page, 'third note', '03-04-2025', true)
       })
   
       test('importance can be changed', async ({ page }) => {
